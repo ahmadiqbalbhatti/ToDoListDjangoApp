@@ -1,0 +1,26 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block styleSheets %}
+    <link rel="stylesheet" href="{% static 'base/base.css' %}">
+{% endblock %}
+
+{% block title %}
+    Deletion Warning!
+{% endblock %}
+
+{% block content %}
+
+    <div class="header-bar">
+        <a href="{% url 'tasks' %}">&#8592; Back</a>
+    </div>
+
+    <div class="card-body">
+    <form method="post">
+        {% csrf_token %}
+        <p>Are you sure you wana delete this task? <em> "{{ task }}" </em> </p>
+        <input class="button" type="submit" value="Delete">
+
+    </form>
+    </div>
+{% endblock %}

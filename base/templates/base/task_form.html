@@ -1,0 +1,32 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block styleSheets %}
+    <link rel="stylesheet" href="{% static 'base/base.css' %}">
+    <link rel="stylesheet" href="{% static 'base/task_form.css' %}">
+{% endblock %}
+
+
+{% block title %}
+    Create Task
+{% endblock %}
+
+
+{% block content %}
+    <div class="header-bar">
+        <a href="{% url 'tasks' %}">&#8592; Back</a>
+    </div>
+
+    <div class="card-body">
+        <div>
+            <form method="post" action="">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input class="button" type="submit" value="Submit">
+
+            </form>
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block styleSheets %}
+    <link rel="stylesheet" href="{% static 'base/base.css' %}">
+{% endblock %}
+
+{% block title %}
+    Task Detail
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="header-bar">
+        <div>
+            <h1>Task: {{ task }}</h1>
+        </div>
+        <a href="{% url 'tasks' %}">&#8592; Back</a>
+    </div>
+
+    <div class="card-body">
+        {% if task.description %}
+            <p>{{ task.description }}</p>
+        {% else %}
+            <p>Description is not available.</p>
+        {% endif %}
+
+
+    </div>
+{% endblock %}
